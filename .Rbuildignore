@@ -1,0 +1,8 @@
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^LICENSE\.md$
+^cran-comments\.md$
+^DECISIONS\.md$
+^README\.Rmd$
