@@ -47,9 +47,9 @@ contracts |>
 
 ```{r}
 contracts |>
-  summarise(total_brl = sum(valor, na.rm = TRUE), .by = razao_social) |>
+  summarise(total_brl = sum(valor, na.rm = TRUE), .by = contratada) |>
   slice_max(total_brl, n = 10) |>
-  ggplot(aes(x = reorder(razao_social, total_brl), y = total_brl / 1e6)) +
+  ggplot(aes(x = reorder(contratada, total_brl), y = total_brl / 1e6)) +
   geom_col(fill = "#e6550d") +
   coord_flip() +
   labs(
@@ -66,9 +66,9 @@ one-liner:
 
 ```{r}
 contracts |>
-  filter(inicio_vigencia <= Sys.Date(), fim_vigencia >= Sys.Date()) |>
-  select(razao_social, objeto, valor, fim_vigencia) |>
-  arrange(fim_vigencia)
+  filter(vigencia_inicio <= Sys.Date(), vigencia_fim >= Sys.Date()) |>
+  select(contratada, objeto, valor, vigencia_fim) |>
+  arrange(vigencia_fim)
 ```
 
 ## Procurement outcomes
@@ -77,13 +77,15 @@ contracts |>
 procurements <- alepe_procurements()
 
 procurements |>
-  count(ano, situacao) |>
-  ggplot(aes(x = ano, y = n, fill = situacao)) +
+  count(ano, status) |>
+  ggplot(aes(x = ano, y = n, fill = status)) +
   geom_col() +
   labs(
     x = NULL, y = "Processes",
     fill = NULL,
     title = "ALEPE procurement processes by year and status"
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  guides(fill = guide_legend(ncol = 1))
 ```

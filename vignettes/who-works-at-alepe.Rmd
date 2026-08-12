@@ -35,19 +35,22 @@ library(ggplot2)
 staff <- alepe_staff()
 
 staff |>
-  count(vinculo, situacao) |>
-  arrange(desc(n))
+  count(vinculo, sort = TRUE)
 ```
+
+Admission dates are parsed to `Date`, so the hiring history of the
+current roster is easy to chart:
 
 ```{r}
 staff |>
-  count(vinculo) |>
-  ggplot(aes(x = reorder(vinculo, n), y = n)) +
-  geom_col(fill = "#2c7fb8") +
-  coord_flip() +
+  mutate(ano_admissao = as.integer(format(data_admissao, "%Y"))) |>
+  count(ano_admissao, vinculo) |>
+  ggplot(aes(x = ano_admissao, y = n, fill = vinculo)) +
+  geom_col() +
   labs(
-    x = NULL, y = "Staff members",
-    title = "ALEPE staff by employment status"
+    x = "Year of admission", y = "Staff members",
+    fill = NULL,
+    title = "Current ALEPE staff by year of admission"
   ) +
   theme_minimal()
 ```
