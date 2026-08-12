@@ -4,3 +4,9 @@
 .Ruserdata
 docs
 inst/doc
+
+# Local project memory / assistant files -- not part of the public repo
+CLAUDE.md
+DECISIONS.md
+.claude/
+*.Rcheck/
