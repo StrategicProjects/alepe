@@ -18,8 +18,8 @@ test_that("connection failure warns and returns typed empty tibble", {
   expect_named(
     out,
     c(
-      "seq", "nome", "codigo_lotacao", "nome_lotacao",
-      "cargo_nivel", "vinculo", "situacao"
+      "nome", "codigo_lotacao", "nome_lotacao", "cargo_efetivo",
+      "cargo_nivel", "vinculo", "data_admissao"
     )
   )
 })

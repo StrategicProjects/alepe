@@ -5,6 +5,34 @@ test_that("clean_names normalizes accents, case and separators", {
   )
 })
 
+test_that("clean_names splits camelCase API field names", {
+  expect_equal(
+    clean_names(c(
+      "nomeParlamentar", "cpfCnpj", "vigenciaInicio",
+      "mesCompetencia", "dataPublicacao"
+    )),
+    c(
+      "nome_parlamentar", "cpf_cnpj", "vigencia_inicio",
+      "mes_competencia", "data_publicacao"
+    )
+  )
+})
+
+test_that("parse_br_number handles both API number encodings", {
+  expect_equal(
+    parse_br_number(c(
+      "1.234,56", # Brazilian money string
+      "119267.04", # plain float string
+      "2026.00", # float-formatted integer
+      "R$ 10,50", # currency prefix
+      "12.345.678", # pure 3-digit groups: grouping dots
+      "256", # plain integer
+      "" # empty -> NA
+    )),
+    c(1234.56, 119267.04, 2026, 10.5, 12345678, 256, NA_real_)
+  )
+})
+
 test_that("map_status accepts English and Portuguese vocabularies", {
   expect_null(map_status(NULL))
   expect_equal(map_status("permanent"), "efetivo")

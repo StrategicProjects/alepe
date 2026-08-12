@@ -1,4 +1,22 @@
 [
-  { "total": 25, "nome_lotacao": "Gabinete da Presidência", "vinculo": "Efetivo" },
-  { "total": 12, "nome_lotacao": "Auditório", "vinculo": "Comissionado" }
+  {
+    "total": 1,
+    "nome_lotacao": null,
+    "vinculo": "Comissionado"
+  },
+  {
+    "total": 1,
+    "nome_lotacao": null,
+    "vinculo": "Estagiário"
+  },
+  {
+    "total": 3,
+    "nome_lotacao": "1ª Secretaria",
+    "vinculo": "Efetivo"
+  },
+  {
+    "total": 54,
+    "nome_lotacao": "1ª Secretaria",
+    "vinculo": "Comissionado"
+  }
 ]
