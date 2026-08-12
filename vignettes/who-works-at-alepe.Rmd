@@ -1,0 +1,90 @@
+---
+title: "Who works at ALEPE?"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Who works at ALEPE?}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+NOT_CRAN <- identical(Sys.getenv("NOT_CRAN"), "true")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = NOT_CRAN,
+  purl = NOT_CRAN,
+  fig.width = 7,
+  fig.height = 4.5
+)
+```
+
+This vignette explores the composition of the Assembly's workforce with
+three endpoints: `alepe_staff()`, `alepe_positions()`, and
+`alepe_departments()`.
+
+```{r setup, message = FALSE}
+library(alepe)
+library(dplyr)
+library(ggplot2)
+```
+
+## Permanent vs. commissioned staff
+
+```{r}
+staff <- alepe_staff()
+
+staff |>
+  count(vinculo, situacao) |>
+  arrange(desc(n))
+```
+
+```{r}
+staff |>
+  count(vinculo) |>
+  ggplot(aes(x = reorder(vinculo, n), y = n)) +
+  geom_col(fill = "#2c7fb8") +
+  coord_flip() +
+  labs(
+    x = NULL, y = "Staff members",
+    title = "ALEPE staff by employment status"
+  ) +
+  theme_minimal()
+```
+
+## Largest departments
+
+```{r}
+departments <- alepe_departments()
+
+departments |>
+  summarise(total = sum(total), .by = nome_lotacao) |>
+  slice_max(total, n = 15) |>
+  ggplot(aes(x = reorder(nome_lotacao, total), y = total)) +
+  geom_col(fill = "#41ab5d") +
+  coord_flip() +
+  labs(
+    x = NULL, y = "Staff members",
+    title = "Fifteen largest ALEPE departments"
+  ) +
+  theme_minimal()
+```
+
+## Position structure
+
+Career positions in the roster encode class and level in a single
+string (`"ANALISTA LEGISLATIVO > CLASSE 1 > NÍVEL 10"`); a quick split
+reveals the career ladder:
+
+```{r}
+positions <- alepe_positions(status = "permanent")
+
+positions |>
+  tidyr::separate_wider_delim(
+    cargo_nivel,
+    delim = " > ",
+    names = c("career", "class", "level"),
+    too_few = "align_start"
+  ) |>
+  count(career, wt = total, sort = TRUE)
+```

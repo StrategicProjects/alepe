@@ -1,0 +1,89 @@
+---
+title: "Following the money: contracts and procurement"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Following the money: contracts and procurement}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+NOT_CRAN <- identical(Sys.getenv("NOT_CRAN"), "true")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = NOT_CRAN,
+  purl = NOT_CRAN,
+  fig.width = 7,
+  fig.height = 4.5
+)
+```
+
+Public procurement data is where open legislative data meets social
+accountability. This vignette explores the Assembly's contracts and
+bidding processes.
+
+```{r setup, message = FALSE}
+library(alepe)
+library(dplyr)
+library(ggplot2)
+```
+
+## Contract values by modality
+
+```{r}
+contracts <- alepe_contracts()
+
+contracts |>
+  summarise(
+    n = n(),
+    total_brl = sum(valor, na.rm = TRUE),
+    .by = modalidade
+  ) |>
+  arrange(desc(total_brl))
+```
+
+## Largest contractors
+
+```{r}
+contracts |>
+  summarise(total_brl = sum(valor, na.rm = TRUE), .by = razao_social) |>
+  slice_max(total_brl, n = 10) |>
+  ggplot(aes(x = reorder(razao_social, total_brl), y = total_brl / 1e6)) +
+  geom_col(fill = "#e6550d") +
+  coord_flip() +
+  labs(
+    x = NULL, y = "Total contracted (BRL, millions)",
+    title = "Ten largest ALEPE contractors"
+  ) +
+  theme_minimal()
+```
+
+## Contracts active today
+
+Validity dates are parsed to `Date`, so filtering active contracts is a
+one-liner:
+
+```{r}
+contracts |>
+  filter(inicio_vigencia <= Sys.Date(), fim_vigencia >= Sys.Date()) |>
+  select(razao_social, objeto, valor, fim_vigencia) |>
+  arrange(fim_vigencia)
+```
+
+## Procurement outcomes
+
+```{r}
+procurements <- alepe_procurements()
+
+procurements |>
+  count(ano, situacao) |>
+  ggplot(aes(x = ano, y = n, fill = situacao)) +
+  geom_col() +
+  labs(
+    x = NULL, y = "Processes",
+    fill = NULL,
+    title = "ALEPE procurement processes by year and status"
+  ) +
+  theme_minimal()
+```
