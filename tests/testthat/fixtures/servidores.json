@@ -1,0 +1,20 @@
+[
+  {
+    "SEQ": "1",
+    "NOME": "THIAGO FREITAS LIRA",
+    "CODIGO_LOTACAO": "40",
+    "NOME_LOTACAO": "Gerência de Apoio à Sistematização da Legislação Estadual",
+    "CARGO_NIVEL": "GERENTE",
+    "VINCULO": "Efetivo",
+    "SITUACAO": "Admitido"
+  },
+  {
+    "SEQ": "2",
+    "NOME": "RAERO JORNADA MONTEIRO",
+    "CODIGO_LOTACAO": "321",
+    "NOME_LOTACAO": "Gerência de Imprensa e Site",
+    "CARGO_NIVEL": "ANALISTA LEGISLATIVO > CLASSE 1 > NÍVEL 10",
+    "VINCULO": "Efetivo",
+    "SITUACAO": "Admitido"
+  }
+]
