@@ -1,0 +1,45 @@
+url: https://castlab.org/alepe
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#1f5aa8"
+
+home:
+  title: alepe — ALEPE open data in R
+  description: >
+    Tidy access to the open data API of the Legislative Assembly of
+    Pernambuco, Brazil.
+
+reference:
+- title: Legislature
+  contents:
+  - alepe_representatives
+  - alepe_bills
+  - alepe_indications
+  - alepe_requests
+- title: Staff and payroll
+  contents:
+  - alepe_staff
+  - alepe_positions
+  - alepe_departments
+  - alepe_remuneration
+- title: Contracts and procurement
+  contents:
+  - alepe_contracts
+  - alepe_procurements
+- title: Utilities
+  contents:
+  - alepe_cache_dir
+  - alepe_cache_clear
+
+articles:
+- title: Exploring the data
+  navbar: ~
+  contents:
+  - alepe
+  - who-works-at-alepe
+  - following-the-money
+
+news:
+  releases: []
