@@ -2,8 +2,17 @@ Package: alepe
 Title: Access the Open Data API of the Legislative Assembly of Pernambuco
 Version: 0.1.0
 Authors@R: c(
-    person("André", "Leite", , "leite@castlab.org", role = c("aut", "cre")),
-    person("CASTLab/UFPE", role = "fnd")
+    person("Andre", "Leite", email = "leite@castlab.org", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-4718-9766")),
+    person("Marcos", "Wasiliew", email = "marcos.wasiliew@sepe.pe.gov.br", role = "aut"),
+    person("Hugo", "Vasconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut",
+           comment = c(ORCID = "0000-0001-6249-0920")),
+    person("Carlos", "Amorim", email = "carlos.agaf@ufpe.br", role = "aut",
+           comment = c(ORCID = "0000-0001-6315-8305")),
+    person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut",
+           comment = c(ORCID = "0000-0002-1216-8674")),
+    person("Júlia", "Nascimento Barreto",
+           email = "juliabarreto@gd.seplag.pe.gov.br", role = "aut")
   )
 Description: A tidy interface to the open data API of the Legislative
     Assembly of the State of Pernambuco, Brazil ('ALEPE',
@@ -14,8 +23,9 @@ Description: A tidy interface to the open data API of the Legislative
     locally and retried with exponential backoff; network failures are
     handled gracefully.
 License: MIT + file LICENSE
-URL: https://castlab.org/alepe, https://github.com/castlaborg/alepe
-BugReports: https://github.com/castlaborg/alepe/issues
+URL: https://github.com/StrategicProjects/alepe,
+    https://strategicprojects.github.io/alepe/
+BugReports: https://github.com/StrategicProjects/alepe/issues
 Depends:
     R (>= 4.1)
 Imports:
@@ -28,13 +38,16 @@ Suggests:
     dplyr,
     ggplot2,
     httptest2,
+    jsonlite,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
     withr
 VignetteBuilder:
     knitr
+Config/Needs/website: pkgdown
 Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-US
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+Config/roxygen2/version: 8.0.0

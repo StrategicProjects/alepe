@@ -1,7 +1,7 @@
-# alepe <img src="man/figures/logo.png" align="right" height="138" alt="" />
+# alepe
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/castlaborg/alepe/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/castlaborg/alepe/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/alepe)](https://CRAN.R-project.org/package=alepe)
 <!-- badges: end -->
 
@@ -25,7 +25,7 @@ and parsed types.
 install.packages("alepe")
 
 # Development version
-pak::pak("castlaborg/alepe")
+pak::pak("StrategicProjects/alepe")
 ```
 
 ## Quick start
@@ -43,7 +43,7 @@ alepe_staff(status = "permanent") |>
 
 # Contracts active today
 alepe_contracts() |>
-  filter(inicio_vigencia <= Sys.Date(), fim_vigencia >= Sys.Date())
+  filter(vigencia_inicio <= Sys.Date(), vigencia_fim >= Sys.Date())
 
 # Bills of a given year
 alepe_bills(year = 2024)
@@ -57,9 +57,10 @@ snake_case, so results stay traceable to the source.
 
 ## Related packages
 
-Part of a family of packages for Brazilian public data developed at
-CASTLab/UFPE, sharing the same httr2/cli design: `tcepe`, `comex`,
-`ibger`.
+Part of a family of packages for Brazilian public data sharing the same
+httr2/cli design, developed at CASTLab/UFPE:
+[transferegovr](https://github.com/StrategicProjects/transferegovr),
+`tcepe`, `comex`, `ibger`.
 
 ## Code of Conduct
 

@@ -17,7 +17,7 @@ alepe_req <- function(endpoint, ..., refresh = FALSE) {
     httr2::req_url_path_append(endpoint, "") |>
     httr2::req_url_query(...) |>
     httr2::req_user_agent(
-      "alepe R package (https://castlab.org/alepe)"
+      "alepe R package (https://github.com/StrategicProjects/alepe)"
     ) |>
     httr2::req_timeout(getOption("alepe.timeout", 30)) |>
     httr2::req_retry(
