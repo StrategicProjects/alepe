@@ -4,6 +4,11 @@
 
 * This is a new release.
 
+## Possibly invalid URLs
+
+* `https://CRAN.R-project.org/package=alepe` (README badge) will resolve
+  once this first submission is accepted.
+
 ## Notes for reviewers
 
 * The package wraps a public government open data API
