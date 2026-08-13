@@ -1,8 +1,9 @@
+# Manual only, on purpose. The ALEPE API refuses connections from
+# GitHub-hosted runners (every endpoint times out with zero bytes), so a
+# site built here has no data in its vignettes -- see DECISIONS.md D20.
+# Publish with pkgdown::deploy_to_branch() from a machine that can reach
+# the API; keep this workflow for reference-only rebuilds.
 on:
-  push:
-    branches: [main, master]
-  release:
-    types: [published]
   workflow_dispatch:
 
 name: pkgdown.yaml
