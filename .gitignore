@@ -10,3 +10,4 @@ CLAUDE.md
 DECISIONS.md
 .claude/
 *.Rcheck/
+.DS_Store
