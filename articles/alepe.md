@@ -59,7 +59,7 @@ permanent_pt <- alepe_staff(status = "efetivo")
 #> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
 #>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
 #>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60002 milliseconds
+#>   60001 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 identical(permanent, permanent_pt)
 #> [1] TRUE
