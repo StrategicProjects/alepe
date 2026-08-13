@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173.2 200" width="173.2" height="200" role="img" aria-label="alepe"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><title>alepe</title><defs>
+    <linearGradient id="hexFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a6ec4"></stop>
+      <stop offset="1" stop-color="#173f75"></stop>
+    </linearGradient>
+    <clipPath id="hexClip">
+      <polygon points="86.6,1.5 171.7,50.75 171.7,149.25 86.6,198.5 1.5,149.25 1.5,50.75"></polygon>
+    </clipPath>
+  </defs><polygon points="86.6,1.5 171.7,50.75 171.7,149.25 86.6,198.5 1.5,149.25 1.5,50.75" fill="url(#hexFill)"></polygon><g clip-path="url(#hexClip)">
+    <!-- pediment: the assembly roof -->
+    <path d="M 40 76 L 86.6 47 L 133.2 76 Z" fill="#ffffff" opacity="0.95"></path>
+    <rect x="38" y="79" width="97.2" height="5" rx="2.5" fill="#ffffff" opacity="0.95"></rect>
+
+    <!-- columns read as bars: the building is also the data -->
+    <rect x="46" y="96" width="12" height="36" rx="1.5" fill="#ffffff" opacity="0.92"></rect>
+    <rect x="64.6" y="106" width="12" height="26" rx="1.5" fill="#ffffff" opacity="0.92"></rect>
+    <rect x="83.2" y="90" width="12" height="42" rx="1.5" fill="#ffffff" opacity="0.92"></rect>
+    <rect x="101.8" y="112" width="12" height="20" rx="1.5" fill="#f7a23b"></rect>
+    <rect x="120.4" y="100" width="12" height="32" rx="1.5" fill="#ffffff" opacity="0.92"></rect>
+
+    <!-- floor -->
+    <rect x="38" y="134" width="97.2" height="5" rx="2.5" fill="#ffffff" opacity="0.95"></rect>
+  </g><text x="86.6" y="171" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="34" font-weight="600" letter-spacing="1.5" fill="#ffffff">alepe</text><polygon points="86.6,1.5 171.7,50.75 171.7,149.25 86.6,198.5 1.5,149.25 1.5,50.75" fill="none" stroke="#ffffff" stroke-width="3"></polygon></svg>

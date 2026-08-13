@@ -17,9 +17,10 @@ library(ggplot2)
 
 contracts <- alepe_contracts()
 #> Warning in alepe_contracts(): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request. Caused by
-#>   error in `curl::curl_fetch_memory()`: ! Timeout was reached
-#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30002 milliseconds
+#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
+#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
+#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
+#>   60002 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 
 contracts |>
@@ -50,7 +51,9 @@ contracts |>
   theme_minimal()
 ```
 
-![](following-the-money_files/figure-html/unnamed-chunk-3-1.png)
+> The ALEPE API did not return contracts while this page was being
+> built, so the chart is omitted. Run the code above yourself for
+> current data.
 
 ## Contracts active today
 
@@ -70,14 +73,24 @@ contracts |>
 
 ## Procurement outcomes
 
+`/licitacoes` is the slowest endpoint of the API — allow it half a
+minute, and remember that a failed request yields a zero-row tibble
+rather than an error:
+
 ``` r
 
 procurements <- alepe_procurements()
 #> Warning in alepe_procurements(): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request. Caused by
-#>   error in `curl::curl_fetch_memory()`: ! Timeout was reached
-#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30002 milliseconds
+#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
+#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
+#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
+#>   60001 milliseconds
 #> ℹ The service may be temporarily down; try again later.
+nrow(procurements)
+#> [1] 0
+```
+
+``` r
 
 procurements |>
   count(ano, status) |>
@@ -93,4 +106,6 @@ procurements |>
   guides(fill = guide_legend(ncol = 1))
 ```
 
-![](following-the-money_files/figure-html/unnamed-chunk-5-1.png)
+> The ALEPE API did not return procurement processes while this page was
+> being built, so the chart is omitted. Run the code above yourself for
+> current data.

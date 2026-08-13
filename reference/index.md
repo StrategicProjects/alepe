@@ -27,6 +27,21 @@
 - [`alepe_procurements()`](https://strategicprojects.github.io/alepe/reference/alepe_procurements.md)
   : List procurement processes
 
+## Portuguese aliases
+
+- [`alepe_parlamentares()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_servidores()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_cargos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_lotacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_remuneracao()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_contratos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_licitacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_projetos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_indicacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_requerimentos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_limpar_cache()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  : Portuguese aliases
+
 ## Utilities
 
 - [`alepe_cache_dir()`](https://strategicprojects.github.io/alepe/reference/alepe_cache_dir.md)

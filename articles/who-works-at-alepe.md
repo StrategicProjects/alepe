@@ -20,9 +20,10 @@ library(ggplot2)
 
 staff <- alepe_staff()
 #> Warning in alepe_staff(): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request. Caused by
-#>   error in `curl::curl_fetch_memory()`: ! Timeout was reached
-#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30001 milliseconds
+#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
+#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
+#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
+#>   60001 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 
 staff |>
@@ -49,7 +50,9 @@ staff |>
   theme_minimal()
 ```
 
-![](who-works-at-alepe_files/figure-html/unnamed-chunk-3-1.png)
+> The ALEPE API did not return the staff roster while this page was
+> being built, so the chart is omitted. Run the code above yourself for
+> current data.
 
 ## Largest departments
 
@@ -57,10 +60,14 @@ staff |>
 
 departments <- alepe_departments()
 #> Warning in alepe_departments(): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request. Caused by
-#>   error in `curl::curl_fetch_memory()`: ! Timeout was reached
-#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30002 milliseconds
+#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
+#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
+#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
+#>   60002 milliseconds
 #> ℹ The service may be temporarily down; try again later.
+```
+
+``` r
 
 departments |>
   summarise(total = sum(total), .by = nome_lotacao) |>
@@ -75,7 +82,9 @@ departments |>
   theme_minimal()
 ```
 
-![](who-works-at-alepe_files/figure-html/unnamed-chunk-4-1.png)
+> The ALEPE API did not return departments while this page was being
+> built, so the chart is omitted. Run the code above yourself for
+> current data.
 
 ## Position structure
 
@@ -87,9 +96,10 @@ the career ladder:
 
 positions <- alepe_positions(status = "permanent")
 #> Warning in alepe_positions(status = "permanent"): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request. Caused by
-#>   error in `curl::curl_fetch_memory()`: ! Timeout was reached
-#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30002 milliseconds
+#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
+#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
+#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
+#>   60002 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 
 positions |>

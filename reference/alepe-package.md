@@ -22,7 +22,8 @@ gracefully.
 - `alepe.max_tries`: maximum request attempts. Defaults to 3, with
   exponential backoff between attempts.
 
-- `alepe.timeout`: request timeout in seconds. Defaults to 30.
+- `alepe.timeout`: request timeout in seconds. Defaults to 60; the
+  slowest endpoint (`/licitacoes`) regularly needs close to 30 s.
 
 ## See also
 

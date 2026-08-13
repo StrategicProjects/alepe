@@ -47,11 +47,60 @@ alepe_contracts() |>
 alepe_bills(year = 2024)
 ```
 
+## How it works
+
+Every exported function is a thin wrapper over the same core: a cached,
+retrying request whose response is typed into a tibble by a documented
+schema. When the API cannot be reached, the call warns and returns a
+zero-row tibble with those same columns instead of raising an error.
+
+![A call to alepe_contracts() goes through alepe_req(), which adds the
+user agent, a 60 second timeout, a six-hour cache and retries, then
+alepe_perform() talks to the ALEPE API. A 2xx response is parsed by
+alepe_fetch_json() and typed by records_to_tibble() into a tibble with
+data; a timeout or an error surviving the retries produces a classed
+warning and a zero-row tibble with the same
+columns.](reference/figures/request-flow.svg)
+
+## Architecture
+
+![Three layers. The endpoint layer holds R/people.R, R/money.R,
+R/propositions.R and R/cache.R, which export one function per endpoint.
+They share a core layer: R/req.R for requests, caching, retries and
+graceful failure, and R/utils.R for naming, typing and Brazilian number
+and date formats. Below sit the ALEPE open data API and the on-disk
+response cache.](reference/figures/architecture.svg)
+
 Filter values use an English vocabulary (`"permanent"`,
 `"commissioned"`, `"seconded"`), but the original API terms
 (`"efetivo"`, `"comissionado"`, `"a-disposicao"`) are accepted as well.
 Column names keep the official Portuguese field names, normalized to
 snake_case, so results stay traceable to the source.
+
+## Em português
+
+Cada função tem um alias com o nome do próprio endpoint da API, para
+quem prefere manter o pipeline inteiro em português. Mesmos argumentos,
+mesmos padrões, mesmo resultado:
+
+``` r
+
+alepe_parlamentares()
+alepe_servidores(status = "efetivo")
+alepe_contratos()
+alepe_projetos(ano = 2024)
+```
+
+[`alepe_cargos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_lotacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_remuneracao()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_licitacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_indicacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_requerimentos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+and
+[`alepe_limpar_cache()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+complete the set — see
+[`?alepe_aliases`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md).
 
 ## Related packages
 
@@ -94,6 +143,21 @@ By contributing you agree to abide by its terms.
   : List administrative contracts
 - [`alepe_procurements()`](https://strategicprojects.github.io/alepe/reference/alepe_procurements.md)
   : List procurement processes
+
+## Portuguese aliases
+
+- [`alepe_parlamentares()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_servidores()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_cargos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_lotacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_remuneracao()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_contratos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_licitacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_projetos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_indicacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_requerimentos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  [`alepe_limpar_cache()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+  : Portuguese aliases
 
 ## Utilities
 
