@@ -65,7 +65,10 @@
   <path d="M 784 184 L 784 306" stroke="#c05621" stroke-width="2" fill="none" marker-end="url(#arrowWarn)"/>
 
   <text class="t lbl" x="232" y="206" fill="#2f855a">2xx</text>
-  <text class="t lbl" x="700" y="216" text-anchor="end" fill="#c05621">timeout, 4xx/5xx after retries</text>
+  <!-- kept beside the arrow it labels, split so it clears the frame -->
+  <text class="t lbl" x="796" y="238" fill="#c05621">timeout,</text>
+  <text class="t lbl" x="796" y="253" fill="#c05621">4xx/5xx</text>
+  <text class="t s" x="796" y="268">after retries</text>
 
   <!-- success path -->
   <rect class="ok" x="120" y="218" width="200" height="64" rx="8"/>
