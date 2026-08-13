@@ -1,4 +1,3 @@
 # License
 
-    YEAR: 2026
-    COPYRIGHT HOLDER: alepe authors
+YEAR: 2026 COPYRIGHT HOLDER: alepe authors

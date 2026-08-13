@@ -22,5 +22,5 @@ The cache directory path, invisibly for `alepe_cache_clear()`.
 
 ``` r
 alepe_cache_dir()
-#> [1] "/home/runner/.cache/R/alepe"
+#> [1] "/Users/leite/Library/Caches/org.R-project.R/R/alepe"
 ```

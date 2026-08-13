@@ -6,10 +6,7 @@ the Legislative Assembly of the State of Pernambuco, Brazil
 a tibble with snake_case column names and parsed types, ready for the
 tidyverse.
 
-``` r
-
-library(alepe)
-```
+[`library`](https://rdrr.io/r/base/library.html)`(`[`alepe`](https://github.com/StrategicProjects/alepe)`)`
 
 ## Available data
 
@@ -28,42 +25,12 @@ library(alepe)
 
 ## A first query
 
-``` r
-
-reps <- alepe_representatives()
-#> Warning in alepe_representatives(): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
-#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
-#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60001 milliseconds
-#> ℹ The service may be temporarily down; try again later.
-reps
-#> # A tibble: 0 × 2
-#> # ℹ 2 variables: nome_parlamentar <chr>, partido <chr>
-```
+`reps`` ``<-`` `[`alepe_representatives`](https://strategicprojects.github.io/alepe/reference/alepe_representatives.md)`(``)`` ``reps`` ``#> ``# A tibble: 49 × 2`` ``#> nome_parlamentar partido`` ``#> ``<chr>`` ``<chr>`` `` ``#> `` 1`` Abimael Santos PL `` ``#> `` 2`` Adalto Santos PP `` ``#> `` 3`` Aglailson Victor PSD `` ``#> `` 4`` Álvaro Porto MDB `` ``#> `` 5`` Antonio Coelho União `` ``#> `` 6`` Antônio Moraes PSD `` ``#> `` 7`` Cayo Albino PSB `` ``#> `` 8`` Claudiano Martins Filho PP `` ``#> `` 9`` Coronel Alberto Feitosa PL `` ``#> ``10`` Dani Portela PT `` ``#> ``# ℹ 39 more rows`
 
 Filters use an English vocabulary, but the original Portuguese API terms
 are accepted too — these are equivalent:
 
-``` r
-
-permanent <- alepe_staff(status = "permanent")
-#> Warning in alepe_staff(status = "permanent"): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
-#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
-#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60002 milliseconds
-#> ℹ The service may be temporarily down; try again later.
-permanent_pt <- alepe_staff(status = "efetivo")
-#> Warning in alepe_staff(status = "efetivo"): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
-#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
-#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60001 milliseconds
-#> ℹ The service may be temporarily down; try again later.
-identical(permanent, permanent_pt)
-#> [1] TRUE
-```
+`permanent`` ``<-`` `[`alepe_staff`](https://strategicprojects.github.io/alepe/reference/alepe_staff.md)`(``status ``=`` ``"permanent"``)`` ``permanent_pt`` ``<-`` `[`alepe_staff`](https://strategicprojects.github.io/alepe/reference/alepe_staff.md)`(``status ``=`` ``"efetivo"``)`` `[`identical`](https://rdrr.io/r/base/identical.html)`(``permanent``, ``permanent_pt``)`` ``#> [1] TRUE`
 
 ## Em português
 
@@ -71,17 +38,7 @@ The same goes for the function names themselves: every endpoint function
 has an alias named after the endpoint it wraps, so a pipeline can stay
 in Portuguese from end to end.
 
-``` r
-
-identical(alepe_servidores(status = "efetivo"), permanent)
-#> Warning in alepe_staff(status = status, refresh = refresh): ! The ALEPE open data API could not be reached.
-#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
-#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
-#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60002 milliseconds
-#> ℹ The service may be temporarily down; try again later.
-#> [1] TRUE
-```
+[`identical`](https://rdrr.io/r/base/identical.html)`(`[`alepe_servidores`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)`(``status ``=`` ``"efetivo"``)``, ``permanent``)`` ``#> [1] TRUE`
 
 [`alepe_parlamentares()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
 [`alepe_cargos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
@@ -104,17 +61,7 @@ Responses are cached under `tools::R_user_dir("alepe", "cache")` for six
 hours by default, so repeated calls in an analysis session do not hit
 the API again. Control it with:
 
-``` r
-
-# Change expiry (seconds)
-options(alepe.cache_max_age = 24 * 3600)
-
-# Force a fresh download for one call
-alepe_staff(refresh = TRUE)
-
-# Wipe the cache
-alepe_cache_clear()
-```
+`# Change expiry (seconds)`` `[`options`](https://rdrr.io/r/base/options.html)`(``alepe.cache_max_age ``=`` ``24`` ``*`` ``3600``)`` `` ``# Force a fresh download for one call`` `[`alepe_staff`](https://strategicprojects.github.io/alepe/reference/alepe_staff.md)`(``refresh ``=`` ``TRUE``)`` `` ``# Wipe the cache`` `[`alepe_cache_clear`](https://strategicprojects.github.io/alepe/reference/alepe_cache_dir.md)`(``)`
 
 ## Graceful failures
 
@@ -124,13 +71,7 @@ exponential backoff; if the API remains unreachable, the function warns
 and returns a zero-row tibble with the documented columns, so pipelines
 downstream keep working:
 
-``` r
-
-out <- alepe_contracts()
-#> Warning: The ALEPE open data API could not be reached.
-nrow(out)
-#> [1] 0
-```
+`out`` ``<-`` `[`alepe_contracts`](https://strategicprojects.github.io/alepe/reference/alepe_contracts.md)`(``)`` ``#> Warning: The ALEPE open data API could not be reached.`` `[`nrow`](https://rdrr.io/r/base/nrow.html)`(``out``)`` ``#> [1] 0`
 
 Warnings carry classes (`alepe_error_http`, `alepe_error_parse`) for
 programmatic handling with
@@ -142,7 +83,4 @@ programmatic handling with
 Progress messages (powered by [cli](https://cli.r-lib.org)) appear in
 interactive sessions. Silence or force them with:
 
-``` r
-
-options(alepe.quiet = TRUE)
-```
+[`options`](https://rdrr.io/r/base/options.html)`(``alepe.quiet ``=`` ``TRUE``)`

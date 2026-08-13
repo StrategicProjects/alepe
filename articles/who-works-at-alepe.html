@@ -38,7 +38,7 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../articles/alepe.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="active nav-item dropdown">
+<li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/who-works-at-alepe.html">Who works at ALEPE?</a></li>
@@ -74,7 +74,7 @@
       <img src="../logo.svg" class="logo" alt=""><h1>Who works at ALEPE?</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/StrategicProjects/alepe/blob/main/vignettes/who-works-at-alepe.Rmd" class="external-link"><code>vignettes/who-works-at-alepe.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/StrategicProjects/alepe/blob/HEAD/vignettes/who-works-at-alepe.Rmd" class="external-link"><code>vignettes/who-works-at-alepe.Rmd</code></a></small>
       <div class="d-none name"><code>who-works-at-alepe.Rmd</code></div>
     </div>
 
@@ -93,17 +93,15 @@ with three endpoints: <code><a href="../reference/alepe_staff.html">alepe_staff(
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">staff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_staff.html">alepe_staff</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in alepe_staff(): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
-<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
-<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
-<span><span class="co">#&gt;   60001 milliseconds</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span></span>
 <span><span class="va">staff</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">vinculo</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 2</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 variables: vinculo &lt;chr&gt;, n &lt;int&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 2</span></span></span>
+<span><span class="co">#&gt;   vinculo          n</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Comissionado  <span style="text-decoration: underline;">1</span>459</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> À Disposição   300</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Efetivo        227</span></span></code></pre></div>
 <p>Admission dates are parsed to <code>Date</code>, so the hiring
 history of the current roster is easy to chart:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -118,23 +116,13 @@ history of the current roster is easy to chart:</p>
 <span>    title <span class="op">=</span> <span class="st">"Current ALEPE staff by year of admission"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<blockquote>
-<p>The ALEPE API did not return the staff roster while this page was
-being built, so the chart is omitted. Run the code above yourself for
-current data.</p>
-</blockquote>
+<p><img src="who-works-at-alepe_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="672"></p>
 </div>
 <div class="section level2">
 <h2 id="largest-departments">Largest departments<a class="anchor" aria-label="anchor" href="#largest-departments"></a>
 </h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">departments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_departments.html">alepe_departments</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in alepe_departments(): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
-<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
-<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
-<span><span class="co">#&gt;   60002 milliseconds</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">departments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_departments.html">alepe_departments</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">departments</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">total</span><span class="op">)</span>, .by <span class="op">=</span> <span class="va">nome_lotacao</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -147,11 +135,7 @@ current data.</p>
 <span>    title <span class="op">=</span> <span class="st">"Fifteen largest ALEPE departments"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<blockquote>
-<p>The ALEPE API did not return departments while this page was being
-built, so the chart is omitted. Run the code above yourself for current
-data.</p>
-</blockquote>
+<p><img src="who-works-at-alepe_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="672"></p>
 </div>
 <div class="section level2">
 <h2 id="position-structure">Position structure<a class="anchor" aria-label="anchor" href="#position-structure"></a>
@@ -162,12 +146,6 @@ string
 quick split reveals the career ladder:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">positions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_positions.html">alepe_positions</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"permanent"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in alepe_positions(status = "permanent"): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
-<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
-<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
-<span><span class="co">#&gt;   60002 milliseconds</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span></span>
 <span><span class="va">positions</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate_wider_delim.html" class="external-link">separate_wider_delim</a></span><span class="op">(</span></span>
@@ -177,8 +155,20 @@ quick split reveals the career ladder:</p>
 <span>    too_few <span class="op">=</span> <span class="st">"align_start"</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">career</span>, wt <span class="op">=</span> <span class="va">total</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 2</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 variables: career &lt;chr&gt;, n &lt;int&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 24 × 2</span></span></span>
+<span><span class="co">#&gt;    career                                n</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> TÉCNICO LEGISLATIVO                  52</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> ANALISTA LEGISLATIVO                 49</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> GERENTE                              34</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> ASSESSORAMENTO                       24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CHEFE DE DEPARTAMENTO                20</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> POLICIAL LEGISLATIVO                  9</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> CHEFE DE EXPEDIENTE                   6</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> AGENTE LEGISLATIVO                    5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> AUXILIAR DE SERVIÇOS                  4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> CONSULTOR CHEFE ADJUNTO DE NUCLEO     3</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 14 more rows</span></span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -193,7 +183,7 @@ quick split reveals the career ladder:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
   </div></footer>
