@@ -36,7 +36,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/alepe.html">Get started</a></li>
+<li class="active nav-item"><a class="nav-link" href="../articles/alepe.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
@@ -74,7 +74,7 @@
       <img src="../logo.svg" class="logo" alt=""><h1>Getting started with alepe</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/StrategicProjects/alepe/blob/HEAD/vignettes/alepe.Rmd" class="external-link"><code>vignettes/alepe.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/StrategicProjects/alepe/blob/main/vignettes/alepe.Rmd" class="external-link"><code>vignettes/alepe.Rmd</code></a></small>
       <div class="d-none name"><code>alepe.Rmd</code></div>
     </div>
 
@@ -160,26 +160,32 @@ ready for the tidyverse.</p>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reps</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_representatives.html">alepe_representatives</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in alepe_representatives(): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
+<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
+<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
+<span><span class="co">#&gt;   60000 milliseconds</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span><span class="va">reps</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 49 × 2</span></span></span>
-<span><span class="co">#&gt;    nome_parlamentar        partido</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Abimael Santos          PL     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Adalto Santos           PP     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Aglailson Victor        PSD    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Álvaro Porto            MDB    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Antonio Coelho          União  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Antônio Moraes          PSD    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Cayo Albino             PSB    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Claudiano Martins Filho PP     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Coronel Alberto Feitosa PL     </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Dani Portela            PT     </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 39 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 2</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 variables: nome_parlamentar &lt;chr&gt;, partido &lt;chr&gt;</span></span></span></code></pre></div>
 <p>Filters use an English vocabulary, but the original Portuguese API
 terms are accepted too — these are equivalent:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">permanent</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_staff.html">alepe_staff</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"permanent"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in alepe_staff(status = "permanent"): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
+<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
+<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
+<span><span class="co">#&gt;   60002 milliseconds</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span><span class="va">permanent_pt</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_staff.html">alepe_staff</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"efetivo"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in alepe_staff(status = "efetivo"): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
+<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
+<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
+<span><span class="co">#&gt;   60001 milliseconds</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">permanent</span>, <span class="va">permanent_pt</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
@@ -191,6 +197,12 @@ function has an alias named after the endpoint it wraps, so a pipeline
 can stay in Portuguese from end to end.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="fu"><a href="../reference/alepe_aliases.html">alepe_servidores</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"efetivo"</span><span class="op">)</span>, <span class="va">permanent</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in alepe_staff(status = status, refresh = refresh): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
+<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
+<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
+<span><span class="co">#&gt;   60002 milliseconds</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p><code><a href="../reference/alepe_aliases.html">alepe_parlamentares()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_cargos()</a></code>,
 <code><a href="../reference/alepe_aliases.html">alepe_lotacoes()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_remuneracao()</a></code>,
@@ -256,7 +268,7 @@ Silence or force them with:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer>

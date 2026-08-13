@@ -19,15 +19,17 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/StrategicProjects/alepe/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/StrategicProjects/alepe/blob/main/DESCRIPTION)
 
 Leite A, Wasiliew M, Vasconcelos H, Amorim C, Bezerra D, Nascimento
 Barreto J (2026). *alepe: Access the Open Data API of the Legislative
 Assembly of Pernambuco*. R package version 0.1.0,
 <https://github.com/StrategicProjects/alepe>.
 
-@Manual{, title = {alepe: Access the Open Data API of the Legislative
-Assembly of Pernambuco}, author = {Andre Leite and Marcos Wasiliew and
-Hugo Vasconcelos and Carlos Amorim and Diogo Bezerra and Júlia
-{Nascimento Barreto}}, year = {2026}, note = {R package version 0.1.0},
-url = {https://github.com/StrategicProjects/alepe}, }
+    @Manual{,
+      title = {alepe: Access the Open Data API of the Legislative Assembly of Pernambuco},
+      author = {Andre Leite and Marcos Wasiliew and Hugo Vasconcelos and Carlos Amorim and Diogo Bezerra and Júlia {Nascimento Barreto}},
+      year = {2026},
+      note = {R package version 0.1.0},
+      url = {https://github.com/StrategicProjects/alepe},
+    }
