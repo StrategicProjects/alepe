@@ -17,6 +17,21 @@ knitr::opts_chunk$set(
   fig.width = 7,
   fig.height = 4.5
 )
+
+# Charts below are guarded with `have_rows()`: when the API is
+# unreachable while this vignette is being rendered, the endpoints
+# return zero-row tibbles by design, and an empty chart would be worse
+# than an honest note.
+have_rows <- function(x) {
+  NOT_CRAN && is.data.frame(x) && nrow(x) > 0L
+}
+offline_note <- function(what) {
+  knitr::asis_output(paste0(
+    "> The ALEPE API did not return ", what, " while this page was ",
+    "being built, so the chart is omitted. Run the code above ",
+    "yourself for current data.\n"
+  ))
+}
 ```
 
 Public procurement data is where open legislative data meets social
@@ -45,7 +60,7 @@ contracts |>
 
 ## Largest contractors
 
-```{r}
+```{r, eval = have_rows(contracts)}
 contracts |>
   summarise(total_brl = sum(valor, na.rm = TRUE), .by = contratada) |>
   slice_max(total_brl, n = 10) |>
@@ -57,6 +72,10 @@ contracts |>
     title = "Ten largest ALEPE contractors"
   ) +
   theme_minimal()
+```
+
+```{r, echo = FALSE, eval = !have_rows(contracts)}
+offline_note("contracts")
 ```
 
 ## Contracts active today
@@ -73,9 +92,16 @@ contracts |>
 
 ## Procurement outcomes
 
+`/licitacoes` is the slowest endpoint of the API — allow it half a
+minute, and remember that a failed request yields a zero-row tibble
+rather than an error:
+
 ```{r}
 procurements <- alepe_procurements()
+nrow(procurements)
+```
 
+```{r, eval = have_rows(procurements)}
 procurements |>
   count(ano, status) |>
   ggplot(aes(x = ano, y = n, fill = status)) +
@@ -88,4 +114,8 @@ procurements |>
   theme_minimal() +
   theme(legend.position = "bottom") +
   guides(fill = guide_legend(ncol = 1))
+```
+
+```{r, echo = FALSE, eval = !have_rows(procurements)}
+offline_note("procurement processes")
 ```

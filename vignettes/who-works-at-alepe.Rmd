@@ -17,6 +17,19 @@ knitr::opts_chunk$set(
   fig.width = 7,
   fig.height = 4.5
 )
+
+# See following-the-money.Rmd: charts are skipped, with a note, when the
+# API is unreachable at build time.
+have_rows <- function(x) {
+  NOT_CRAN && is.data.frame(x) && nrow(x) > 0L
+}
+offline_note <- function(what) {
+  knitr::asis_output(paste0(
+    "> The ALEPE API did not return ", what, " while this page was ",
+    "being built, so the chart is omitted. Run the code above ",
+    "yourself for current data.\n"
+  ))
+}
 ```
 
 This vignette explores the composition of the Assembly's workforce with
@@ -41,7 +54,7 @@ staff |>
 Admission dates are parsed to `Date`, so the hiring history of the
 current roster is easy to chart:
 
-```{r}
+```{r, eval = have_rows(staff)}
 staff |>
   mutate(ano_admissao = as.integer(format(data_admissao, "%Y"))) |>
   count(ano_admissao, vinculo) |>
@@ -55,11 +68,17 @@ staff |>
   theme_minimal()
 ```
 
+```{r, echo = FALSE, eval = !have_rows(staff)}
+offline_note("the staff roster")
+```
+
 ## Largest departments
 
 ```{r}
 departments <- alepe_departments()
+```
 
+```{r, eval = have_rows(departments)}
 departments |>
   summarise(total = sum(total), .by = nome_lotacao) |>
   slice_max(total, n = 15) |>
@@ -71,6 +90,10 @@ departments |>
     title = "Fifteen largest ALEPE departments"
   ) +
   theme_minimal()
+```
+
+```{r, echo = FALSE, eval = !have_rows(departments)}
+offline_note("departments")
 ```
 
 ## Position structure

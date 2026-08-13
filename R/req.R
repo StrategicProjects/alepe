@@ -5,7 +5,7 @@ alepe_base_url <- "https://dadosabertos.alepe.pe.gov.br/api/v1"
 #'
 #' Central request constructor used by every endpoint function. Adds a
 #' descriptive user agent, exponential backoff retries for transient
-#' failures, a 30 s timeout, and a local response cache.
+#' failures, a 60 s timeout, and a local response cache.
 #'
 #' @param endpoint API path appended to the base URL, e.g. `"parlamentares"`.
 #' @param ... Named query parameters. `NULL` values are dropped.
@@ -19,7 +19,9 @@ alepe_req <- function(endpoint, ..., refresh = FALSE) {
     httr2::req_user_agent(
       "alepe R package (https://github.com/StrategicProjects/alepe)"
     ) |>
-    httr2::req_timeout(getOption("alepe.timeout", 30)) |>
+    # 60 s, not 30: /licitacoes routinely takes ~28 s to answer, close
+    # enough to a 30 s limit that the endpoint failed intermittently.
+    httr2::req_timeout(getOption("alepe.timeout", 60)) |>
     httr2::req_retry(
       max_tries = getOption("alepe.max_tries", 3),
       backoff = function(i) 2^i,

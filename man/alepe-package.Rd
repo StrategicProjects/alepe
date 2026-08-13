@@ -6,6 +6,8 @@
 \alias{alepe-package}
 \title{alepe: Access the Open Data API of the Legislative Assembly of Pernambuco}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 A tidy interface to the open data API of the Legislative Assembly of the State of Pernambuco, Brazil ('ALEPE', \url{https://dadosabertos.alepe.pe.gov.br}). Retrieve data on representatives, staff, positions, departments, remuneration, contracts, procurement processes, and legislative propositions as tibbles with clean names and parsed column types. Requests are cached locally and retried with exponential backoff; network failures are handled gracefully.
 }
 \section{Package options}{
@@ -18,7 +20,8 @@ in non-interactive sessions.
 \item \code{alepe.cache_max_age}: cache expiry in seconds. Defaults to 6 hours.
 \item \code{alepe.max_tries}: maximum request attempts. Defaults to 3, with
 exponential backoff between attempts.
-\item \code{alepe.timeout}: request timeout in seconds. Defaults to 30.
+\item \code{alepe.timeout}: request timeout in seconds. Defaults to 60; the
+slowest endpoint (\verb{/licitacoes}) regularly needs close to 30 s.
 }
 }
 
