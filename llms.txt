@@ -73,10 +73,24 @@ complete the set — see
 
 ## Related packages
 
-Part of a family of packages for Brazilian public data sharing the same
-httr2/cli design, developed at CASTLab/UFPE:
-[transferegovr](https://github.com/StrategicProjects/transferegovr),
-`tcepe`, `comex`, `ibger`.
+`alepe` belongs to a family of R clients for Brazilian public data that
+share the same httr2/cli design and the same graceful-failure contract.
+All of them are on CRAN:
+
+| Package | Covers |
+|----|----|
+| [tceper](https://CRAN.R-project.org/package=tceper) | Pernambuco Court of Accounts |
+| [BigDataPE](https://CRAN.R-project.org/package=BigDataPE) | Pernambuco state data platform |
+| [transferegovr](https://CRAN.R-project.org/package=transferegovr) | Federal transfers (‘TransfereGov’) |
+| [tesouror](https://CRAN.R-project.org/package=tesouror) | National Treasury |
+| [obrasgovr](https://CRAN.R-project.org/package=obrasgovr) | Federal public works (‘ObrasGov’) |
+| [comexr](https://CRAN.R-project.org/package=comexr) | Foreign trade statistics (‘ComexStat’) |
+| [datasusr](https://CRAN.R-project.org/package=datasusr) | Public health data (‘DATASUS’) |
+| [ibger](https://CRAN.R-project.org/package=ibger) | ‘IBGE’ aggregate data |
+| [pixr](https://CRAN.R-project.org/package=pixr) | Central Bank ‘PIX’ open data |
+
+Developed at CASTLab/UFPE and published under
+[StrategicProjects](https://github.com/StrategicProjects).
 
 ## Code of Conduct
 
