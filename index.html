@@ -115,6 +115,7 @@
 <span></span>
 <span><span class="co"># Bills of a given year</span></span>
 <span><span class="fu"><a href="reference/alepe_bills.html">alepe_bills</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></code></pre></div>
+<p>Filter values use an English vocabulary (<code>"permanent"</code>, <code>"commissioned"</code>, <code>"seconded"</code>), but the original API terms (<code>"efetivo"</code>, <code>"comissionado"</code>, <code>"a-disposicao"</code>) are accepted as well. Column names keep the official Portuguese field names, normalized to snake_case, so results stay traceable to the source.</p>
 </div>
 <div class="section level2">
 <h2 id="how-it-works">How it works<a class="anchor" aria-label="anchor" href="#how-it-works"></a>
@@ -126,7 +127,6 @@
 <h2 id="architecture">Architecture<a class="anchor" aria-label="anchor" href="#architecture"></a>
 </h2>
 <p><img src="reference/figures/architecture.svg" alt="Three layers. The endpoint layer holds R/people.R, R/money.R, R/propositions.R and R/cache.R, which export one function per endpoint. They share a core layer: R/req.R for requests, caching, retries and graceful failure, and R/utils.R for naming, typing and Brazilian number and date formats. Below sit the ALEPE open data API and the on-disk response cache." width="100%"></p>
-<p>Filter values use an English vocabulary (<code>"permanent"</code>, <code>"commissioned"</code>, <code>"seconded"</code>), but the original API terms (<code>"efetivo"</code>, <code>"comissionado"</code>, <code>"a-disposicao"</code>) are accepted as well. Column names keep the official Portuguese field names, normalized to snake_case, so results stay traceable to the source.</p>
 </div>
 <div class="section level2">
 <h2 id="em-português">Em português<a class="anchor" aria-label="anchor" href="#em-portugu%C3%AAs"></a>

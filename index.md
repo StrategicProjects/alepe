@@ -47,6 +47,12 @@ alepe_contracts() |>
 alepe_bills(year = 2024)
 ```
 
+Filter values use an English vocabulary (`"permanent"`,
+`"commissioned"`, `"seconded"`), but the original API terms
+(`"efetivo"`, `"comissionado"`, `"a-disposicao"`) are accepted as well.
+Column names keep the official Portuguese field names, normalized to
+snake_case, so results stay traceable to the source.
+
 ## How it works
 
 Every exported function is a thin wrapper over the same core: a cached,
@@ -70,12 +76,6 @@ They share a core layer: R/req.R for requests, caching, retries and
 graceful failure, and R/utils.R for naming, typing and Brazilian number
 and date formats. Below sit the ALEPE open data API and the on-disk
 response cache.](reference/figures/architecture.svg)
-
-Filter values use an English vocabulary (`"permanent"`,
-`"commissioned"`, `"seconded"`), but the original API terms
-(`"efetivo"`, `"comissionado"`, `"a-disposicao"`) are accepted as well.
-Column names keep the official Portuguese field names, normalized to
-snake_case, so results stay traceable to the source.
 
 ## Em português
 

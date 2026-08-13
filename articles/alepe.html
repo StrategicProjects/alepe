@@ -164,7 +164,7 @@ ready for the tidyverse.</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
 <span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
 <span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
-<span><span class="co">#&gt;   60000 milliseconds</span></span>
+<span><span class="co">#&gt;   60001 milliseconds</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
 <span><span class="va">reps</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 0 × 2</span></span></span>
@@ -190,13 +190,37 @@ terms are accepted too — these are equivalent:</p>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="em-português">Em português<a class="anchor" aria-label="anchor" href="#em-portugu%C3%AAs"></a>
+</h2>
+<p>The same goes for the function names themselves: every endpoint
+function has an alias named after the endpoint it wraps, so a pipeline
+can stay in Portuguese from end to end.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="fu"><a href="../reference/alepe_aliases.html">alepe_servidores</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"efetivo"</span><span class="op">)</span>, <span class="va">permanent</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in alepe_staff(status = status, refresh = refresh): <span style="color: #BBBB00;">!</span> The ALEPE open data API could not be reached.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Returning `NULL`. Original error: Failed to perform HTTP request.</span></span>
+<span><span class="co">#&gt;   <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was</span></span>
+<span><span class="co">#&gt;   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after</span></span>
+<span><span class="co">#&gt;   60002 milliseconds</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The service may be temporarily down; try again later.</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<p><code><a href="../reference/alepe_aliases.html">alepe_parlamentares()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_cargos()</a></code>,
+<code><a href="../reference/alepe_aliases.html">alepe_lotacoes()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_remuneracao()</a></code>,
+<code><a href="../reference/alepe_aliases.html">alepe_contratos()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_licitacoes()</a></code>,
+<code><a href="../reference/alepe_aliases.html">alepe_projetos()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_indicacoes()</a></code>,
+<code><a href="../reference/alepe_aliases.html">alepe_requerimentos()</a></code> and <code><a href="../reference/alepe_aliases.html">alepe_limpar_cache()</a></code>
+complete the set. The propositions aliases take Portuguese argument
+names as well — <code>alepe_projetos(ano = 2024)</code>. See
+<code><a href="../reference/alepe_aliases.html">?alepe_aliases</a></code>.</p>
+</div>
+<div class="section level2">
 <h2 id="caching">Caching<a class="anchor" aria-label="anchor" href="#caching"></a>
 </h2>
 <p>Responses are cached under
 <code>tools::R_user_dir("alepe", "cache")</code> for six hours by
 default, so repeated calls in an analysis session do not hit the API
 again. Control it with:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change expiry (seconds)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>alepe.cache_max_age <span class="op">=</span> <span class="fl">24</span> <span class="op">*</span> <span class="fl">3600</span><span class="op">)</span></span>
 <span></span>
@@ -214,7 +238,7 @@ never errors on network problems. Requests are retried up to three times
 with exponential backoff; if the API remains unreachable, the function
 warns and returns a zero-row tibble with the documented columns, so
 pipelines downstream keep working:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_contracts.html">alepe_contracts</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: The ALEPE open data API could not be reached.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
@@ -228,7 +252,7 @@ pipelines downstream keep working:</p>
 </h2>
 <p>Progress messages (powered by <a href="https://cli.r-lib.org" class="external-link">cli</a>) appear in interactive sessions.
 Silence or force them with:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>alepe.quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

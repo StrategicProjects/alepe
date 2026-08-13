@@ -35,7 +35,7 @@ reps <- alepe_representatives()
 #> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
 #>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
 #>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60000 milliseconds
+#>   60001 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 reps
 #> # A tibble: 0 × 2
@@ -64,6 +64,39 @@ permanent_pt <- alepe_staff(status = "efetivo")
 identical(permanent, permanent_pt)
 #> [1] TRUE
 ```
+
+## Em português
+
+The same goes for the function names themselves: every endpoint function
+has an alias named after the endpoint it wraps, so a pipeline can stay
+in Portuguese from end to end.
+
+``` r
+
+identical(alepe_servidores(status = "efetivo"), permanent)
+#> Warning in alepe_staff(status = status, refresh = refresh): ! The ALEPE open data API could not be reached.
+#> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
+#>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
+#>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
+#>   60002 milliseconds
+#> ℹ The service may be temporarily down; try again later.
+#> [1] TRUE
+```
+
+[`alepe_parlamentares()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_cargos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_lotacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_remuneracao()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_contratos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_licitacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_projetos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_indicacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
+[`alepe_requerimentos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+and
+[`alepe_limpar_cache()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)
+complete the set. The propositions aliases take Portuguese argument
+names as well — `alepe_projetos(ano = 2024)`. See
+[`?alepe_aliases`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md).
 
 ## Caching
 

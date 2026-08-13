@@ -63,7 +63,7 @@ departments <- alepe_departments()
 #> ℹ Returning `NULL`. Original error: Failed to perform HTTP request.
 #>   Caused by error in `curl::curl_fetch_memory()`: ! Timeout was
 #>   reached [dadosabertos.alepe.pe.gov.br]: Connection timed out after
-#>   60002 milliseconds
+#>   60000 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 ```
 
