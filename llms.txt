@@ -16,36 +16,11 @@ legislative propositions — as tibbles with clean names and parsed types.
 
 ## Installation
 
-``` r
-
-# CRAN (once accepted)
-install.packages("alepe")
-
-# Development version
-pak::pak("StrategicProjects/alepe")
-```
+`# CRAN (once accepted)`` `[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"alepe"``)`` `` ``# Development version`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"StrategicProjects/alepe"``)`
 
 ## Quick start
 
-``` r
-
-library(alepe)
-library(dplyr)
-
-# Current representatives
-alepe_representatives()
-
-# Permanent staff, largest departments
-alepe_staff(status = "permanent") |>
-  count(nome_lotacao, sort = TRUE)
-
-# Contracts active today
-alepe_contracts() |>
-  filter(vigencia_inicio <= Sys.Date(), vigencia_fim >= Sys.Date())
-
-# Bills of a given year
-alepe_bills(year = 2024)
-```
+[`library`](https://rdrr.io/r/base/library.html)`(`[`alepe`](https://github.com/StrategicProjects/alepe)`)`` `[`library`](https://rdrr.io/r/base/library.html)`(`[`dplyr`](https://dplyr.tidyverse.org)`)`` `` ``# Current representatives`` `[`alepe_representatives`](https://strategicprojects.github.io/alepe/reference/alepe_representatives.md)`(``)`` `` ``# Permanent staff, largest departments`` `[`alepe_staff`](https://strategicprojects.github.io/alepe/reference/alepe_staff.md)`(``status ``=`` ``"permanent"``)`` ``|>`` `` `[`count`](https://dplyr.tidyverse.org/reference/count.html)`(``nome_lotacao``, sort ``=`` ``TRUE``)`` `` ``# Contracts active today`` `[`alepe_contracts`](https://strategicprojects.github.io/alepe/reference/alepe_contracts.md)`(``)`` ``|>`` `` `[`filter`](https://dplyr.tidyverse.org/reference/filter.html)`(``vigencia_inicio`` ``<=`` `[`Sys.Date`](https://rdrr.io/r/base/Sys.time.html)`(``)``, ``vigencia_fim`` ``>=`` `[`Sys.Date`](https://rdrr.io/r/base/Sys.time.html)`(``)``)`` `` ``# Bills of a given year`` `[`alepe_bills`](https://strategicprojects.github.io/alepe/reference/alepe_bills.md)`(``year ``=`` ``2024``)`
 
 Filter values use an English vocabulary (`"permanent"`,
 `"commissioned"`, `"seconded"`), but the original API terms
@@ -83,13 +58,7 @@ Cada função tem um alias com o nome do próprio endpoint da API, para
 quem prefere manter o pipeline inteiro em português. Mesmos argumentos,
 mesmos padrões, mesmo resultado:
 
-``` r
-
-alepe_parlamentares()
-alepe_servidores(status = "efetivo")
-alepe_contratos()
-alepe_projetos(ano = 2024)
-```
+[`alepe_parlamentares`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)`(``)`` `[`alepe_servidores`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)`(``status ``=`` ``"efetivo"``)`` `[`alepe_contratos`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)`(``)`` `[`alepe_projetos`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md)`(``ano ``=`` ``2024``)`
 
 [`alepe_cargos()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
 [`alepe_lotacoes()`](https://strategicprojects.github.io/alepe/reference/alepe_aliases.md),
