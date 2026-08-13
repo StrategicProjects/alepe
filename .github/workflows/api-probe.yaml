@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+
+name: api-probe
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe the ALEPE API from a GitHub runner
+        run: |
+          UA="alepe R package (https://github.com/StrategicProjects/alepe)"
+          for ep in contratos servidores licitacoes; do
+            echo "== /$ep"
+            curl -sS -A "$UA" -o /dev/null --max-time 90 \
+              -w "   http=%{http_code} time=%{time_total}s size=%{size_download}\n" \
+              "https://dadosabertos.alepe.pe.gov.br/api/v1/$ep/" || echo "   curl failed rc=$?"
+          done
