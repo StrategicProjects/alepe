@@ -1,4 +1,4 @@
-# alepe
+# alepe <img src="man/figures/logo.svg" align="right" height="138" alt="" />
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml)
@@ -48,6 +48,19 @@ alepe_contracts() |>
 # Bills of a given year
 alepe_bills(year = 2024)
 ```
+
+## How it works
+
+Every exported function is a thin wrapper over the same core: a cached,
+retrying request whose response is typed into a tibble by a documented
+schema. When the API cannot be reached, the call warns and returns a
+zero-row tibble with those same columns instead of raising an error.
+
+<img src="man/figures/request-flow.svg" alt="A call to alepe_contracts() goes through alepe_req(), which adds the user agent, a 60 second timeout, a six-hour cache and retries, then alepe_perform() talks to the ALEPE API. A 2xx response is parsed by alepe_fetch_json() and typed by records_to_tibble() into a tibble with data; a timeout or an error surviving the retries produces a classed warning and a zero-row tibble with the same columns." width="100%" />
+
+## Architecture
+
+<img src="man/figures/architecture.svg" alt="Three layers. The endpoint layer holds R/people.R, R/money.R, R/propositions.R and R/cache.R, which export one function per endpoint. They share a core layer: R/req.R for requests, caching, retries and graceful failure, and R/utils.R for naming, typing and Brazilian number and date formats. Below sit the ALEPE open data API and the on-disk response cache." width="100%" />
 
 Filter values use an English vocabulary (`"permanent"`,
 `"commissioned"`, `"seconded"`), but the original API terms
