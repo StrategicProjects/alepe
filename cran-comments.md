@@ -1,13 +1,17 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 0 notes locally (macOS, R 4.6.0) and on
+GitHub Actions (Windows, macOS, Ubuntu release/devel/oldrel-1).
 
-* This is a new release.
+win-builder reports the one NOTE expected of a first submission:
 
-## Possibly invalid URLs
-
-* `https://CRAN.R-project.org/package=alepe` (README badge) will resolve
-  once this first submission is accepted.
+* New submission.
+* Possibly misspelled words in DESCRIPTION: Pernambuco, backoff,
+  tibbles. "Pernambuco" is the Brazilian state whose Assembly publishes
+  the data; the other two are standard terms in this context.
+* Possibly invalid URL `https://CRAN.R-project.org/package=alepe`
+  (the README's CRAN badge), which will resolve once this submission is
+  accepted.
 
 ## Notes for reviewers
 
