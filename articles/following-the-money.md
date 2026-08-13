@@ -29,8 +29,10 @@ one-liner:
 minute, and remember that a failed request yields a zero-row tibble
 rather than an error:
 
-`procurements`` ``<-`` `[`alepe_procurements`](https://strategicprojects.github.io/alepe/reference/alepe_procurements.md)`(``)`` `[`nrow`](https://rdrr.io/r/base/nrow.html)`(``procurements``)`` ``#> [1] 618`
+`procurements`` ``<-`` `[`alepe_procurements`](https://strategicprojects.github.io/alepe/reference/alepe_procurements.md)`(``)`` ``#> Waiting 2s for retry backoff ``■■■■■■■■■■■■■■■■ `` ``#> Waiting 2s for retry backoff ``■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ `` ``#> Waiting 4s for retry backoff ``■■■■■■■■ `` ``#> Waiting 4s for retry backoff ``■■■■■■■■■■■■■■■ `` ``#> Waiting 4s for retry backoff ``■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ `` ``#> Warning in alepe_procurements(): ``!`` The ALEPE open data API could not be reached.`` ``#> ``ℹ```  Returning `NULL`. Original error: HTTP 500 Internal Server Error. ``` ``#> ``ℹ`` The service may be temporarily down; try again later.`` `[`nrow`](https://rdrr.io/r/base/nrow.html)`(``procurements``)`` ``#> [1] 0`
 
 `procurements`` ``|>`` `` `[`count`](https://dplyr.tidyverse.org/reference/count.html)`(``ano``, ``status``)`` ``|>`` `` `[`ggplot`](https://ggplot2.tidyverse.org/reference/ggplot.html)`(`[`aes`](https://ggplot2.tidyverse.org/reference/aes.html)`(``x ``=`` ``ano``, y ``=`` ``n``, fill ``=`` ``status``)``)`` ``+`` `` `[`geom_col`](https://ggplot2.tidyverse.org/reference/geom_bar.html)`(``)`` ``+`` `` `[`labs`](https://ggplot2.tidyverse.org/reference/labs.html)`(`` `` x ``=`` ``NULL``, y ``=`` ``"Processes"``,`` `` fill ``=`` ``NULL``,`` `` title ``=`` ``"ALEPE procurement processes by year and status"`` `` ``)`` ``+`` `` `[`theme_minimal`](https://ggplot2.tidyverse.org/reference/ggtheme.html)`(``)`` ``+`` `` `[`theme`](https://ggplot2.tidyverse.org/reference/theme.html)`(``legend.position ``=`` ``"bottom"``)`` ``+`` `` `[`guides`](https://ggplot2.tidyverse.org/reference/guides.html)`(``fill ``=`` `[`guide_legend`](https://ggplot2.tidyverse.org/reference/guide_legend.html)`(``ncol ``=`` ``1``)``)`
 
-![](following-the-money_files/figure-html/unnamed-chunk-7-1.png)
+> The ALEPE API did not return procurement processes while this page was
+> being built, so the chart is omitted. Run the code above yourself for
+> current data.
