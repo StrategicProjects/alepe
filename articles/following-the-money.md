@@ -19,7 +19,7 @@ contracts <- alepe_contracts()
 #> Warning in alepe_contracts(): ! The ALEPE open data API could not be reached.
 #> ℹ Returning `NULL`. Original error: Failed to perform HTTP request. Caused by
 #>   error in `curl::curl_fetch_memory()`: ! Timeout was reached
-#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30001 milliseconds
+#>   [dadosabertos.alepe.pe.gov.br]: Connection timed out after 30002 milliseconds
 #> ℹ The service may be temporarily down; try again later.
 
 contracts |>
