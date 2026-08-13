@@ -1,6 +1,7 @@
 url: https://strategicprojects.github.io/alepe/
 
 template:
+  package: tidytemplate
   bootstrap: 5
   bslib:
     primary: "#1f5aa8"
