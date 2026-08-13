@@ -7,3 +7,7 @@
   indications, requests).
 * Local response cache, exponential-backoff retries, graceful failures
   compliant with the CRAN policy on internet resources.
+
+* Every endpoint function has a Portuguese alias named after the API
+  endpoint it wraps (`alepe_servidores()`, `alepe_contratos()`,
+  `alepe_projetos()`, ...); see `?alepe_aliases`.

@@ -29,6 +29,9 @@ reference:
   contents:
   - alepe_contracts
   - alepe_procurements
+- title: Portuguese aliases
+  contents:
+  - alepe_aliases
 - title: Utilities
   contents:
   - alepe_cache_dir

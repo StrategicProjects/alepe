@@ -71,3 +71,37 @@ test_that("missing fields become NA, extra fields are ignored", {
   expect_true(is.na(out$email))
   expect_named(out, c("nome", "email"))
 })
+
+test_that("Portuguese aliases forward to their English counterparts", {
+  records <- jsonlite::read_json(testthat::test_path("fixtures", "servidores.json"))
+  local_mocked_bindings(alepe_fetch_json = function(...) records)
+
+  expect_identical(alepe_servidores(), alepe_staff())
+  expect_identical(
+    alepe_servidores(status = "efetivo"),
+    alepe_staff(status = "permanent")
+  )
+})
+
+test_that("proposition aliases translate Portuguese argument names", {
+  csv <- readr::read_csv(
+    testthat::test_path("fixtures", "projetos.csv"),
+    locale = readr::locale(encoding = "UTF-8"),
+    show_col_types = FALSE, progress = FALSE
+  )
+  local_mocked_bindings(alepe_fetch_csv = function(...) csv)
+
+  expect_identical(alepe_projetos(ano = 2024), alepe_bills(year = 2024))
+  expect_error(alepe_projetos(numero = 10), class = "alepe_error_input")
+})
+
+test_that("every English endpoint has a Portuguese alias", {
+  exported <- getNamespaceExports("alepe")
+  aliases <- c(
+    "alepe_parlamentares", "alepe_servidores", "alepe_cargos",
+    "alepe_lotacoes", "alepe_remuneracao", "alepe_contratos",
+    "alepe_licitacoes", "alepe_projetos", "alepe_indicacoes",
+    "alepe_requerimentos", "alepe_limpar_cache"
+  )
+  expect_true(all(aliases %in% exported))
+})

@@ -68,6 +68,23 @@ Filter values use an English vocabulary (`"permanent"`,
 Column names keep the official Portuguese field names, normalized to
 snake_case, so results stay traceable to the source.
 
+## Em português
+
+Cada função tem um alias com o nome do próprio endpoint da API, para
+quem prefere manter o pipeline inteiro em português. Mesmos argumentos,
+mesmos padrões, mesmo resultado:
+
+```r
+alepe_parlamentares()
+alepe_servidores(status = "efetivo")
+alepe_contratos()
+alepe_projetos(ano = 2024)
+```
+
+`alepe_cargos()`, `alepe_lotacoes()`, `alepe_remuneracao()`,
+`alepe_licitacoes()`, `alepe_indicacoes()`, `alepe_requerimentos()` and
+`alepe_limpar_cache()` complete the set — see `?alepe_aliases`.
+
 ## Related packages
 
 Part of a family of packages for Brazilian public data sharing the same
