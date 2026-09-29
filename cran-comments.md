@@ -1,17 +1,20 @@
+## Submission
+
+This is a patch release (0.1.0 was accepted on 2026-08-20). It fixes a
+bug where an invalid `status` argument was reported as a network
+failure instead of an input error, adds one filter value exposed by the
+API, and updates author metadata (spelling of the maintainer's name,
+one co-author's e-mail, ORCIDs). The maintainer's e-mail address is
+unchanged.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes locally (macOS, R 4.6.0) and on
 GitHub Actions (Windows, macOS, Ubuntu release/devel/oldrel-1).
 
-win-builder reports the one NOTE expected of a first submission:
+## Reverse dependencies
 
-* New submission.
-* Possibly misspelled words in DESCRIPTION: Pernambuco, backoff,
-  tibbles. "Pernambuco" is the Brazilian state whose Assembly publishes
-  the data; the other two are standard terms in this context.
-* Possibly invalid URL `https://CRAN.R-project.org/package=alepe`
-  (the README's CRAN badge), which will resolve once this submission is
-  accepted.
+There are no reverse dependencies.
 
 ## Notes for reviewers
 

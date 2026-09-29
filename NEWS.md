@@ -1,4 +1,4 @@
-# alepe (development version)
+# alepe 0.1.1
 
 * `alepe_staff()` gains `status = "lent"` (API term `"efetivo-cedido"`):
   the Assembly's own permanent staff lent to other bodies. The API
