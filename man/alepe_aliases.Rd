@@ -50,14 +50,9 @@ alepe_limpar_cache()
 \arguments{
 \item{refresh}{If \code{TRUE}, bypass the local cache.}
 
-\item{status}{Employment status filter. One of \code{"permanent"},
-\code{"commissioned"}, \code{"seconded"} (staff from other bodies placed at
-the Assembly's disposal), or \code{"lent"} (the Assembly's own permanent
-staff lent to other bodies, a subset of \code{"permanent"}); the original
-API terms \code{"efetivo"}, \code{"comissionado"}, \code{"a-disposicao"}, and
-\code{"efetivo-cedido"} are also accepted. \code{NULL} (default) for all.
-Lent staff are published with \code{vinculo} \code{"Efetivo"}, so this filter
-is the only way to tell them apart.}
+\item{status}{Employment status filter, as in \code{\link[=alepe_staff]{alepe_staff()}} and
+\code{\link[=alepe_positions]{alepe_positions()}}. \code{"lent"} (\code{"efetivo-cedido"}) is accepted by
+\code{alepe_servidores()} only.}
 
 \item{numero}{Portuguese spelling of \code{number}.}
 
