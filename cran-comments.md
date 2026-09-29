@@ -11,6 +11,7 @@ unchanged.
 
 0 errors | 0 warnings | 0 notes locally (macOS, R 4.6.0) and on
 GitHub Actions (Windows, macOS, Ubuntu release/devel/oldrel-1).
+win-builder (R 4.6.1): Status OK.
 
 ## Reverse dependencies
 
