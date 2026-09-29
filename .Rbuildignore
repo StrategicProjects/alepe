@@ -10,3 +10,6 @@
 ^DECISIONS\.md$
 ^README\.Rmd$
 ^CLAUDE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^CRAN-SUBMISSION$
