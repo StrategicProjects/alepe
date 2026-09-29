@@ -1,3 +1,13 @@
+# alepe (development version)
+
+* An invalid `status` in `alepe_staff()` / `alepe_positions()` (and
+  their aliases) is now an error, as documented. It used to be evaluated
+  inside the fetch layer's error handler and surfaced as a warning that
+  the API could not be reached, followed by an empty tibble.
+* Author metadata: the maintainer's name is spelled André Leite; Marcos
+  Wasiliew's e-mail address is updated; ORCIDs added for Marcos Wasiliew
+  and Júlia Nascimento Barreto.
+
 # alepe 0.1.0
 
 * Initial release.
