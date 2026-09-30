@@ -3,6 +3,7 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/alepe)](https://CRAN.R-project.org/package=alepe)
+[![DOI](https://img.shields.io/badge/DOI-10.32614%2FCRAN.package.alepe-blue.svg)](https://doi.org/10.32614/CRAN.package.alepe)
 <!-- badges: end -->
 
 Tidy access to the open data API of the Legislative Assembly of the
