@@ -16,6 +16,9 @@ alepe_positions(status = NULL, refresh = FALSE)
   Employment status filter. One of `"permanent"`, `"commissioned"`, or
   `"seconded"` (the original API terms `"efetivo"`, `"comissionado"`,
   and `"a-disposicao"` are also accepted), or `NULL` (default) for all.
+  Unlike
+  [`alepe_staff()`](https://strategicprojects.github.io/alepe/reference/alepe_staff.md),
+  `"lent"` is not available: the API ignores it for this endpoint.
 
 - refresh:
 

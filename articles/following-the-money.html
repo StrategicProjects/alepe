@@ -27,7 +27,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">alepe</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,9 +103,9 @@ bidding processes.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 3</span></span></span>
 <span><span class="co">#&gt;    modalidade                    n  total_brl</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Pregão Eletrônico           325 397<span style="text-decoration: underline;">636</span>268.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Pregão Presencial            86 107<span style="text-decoration: underline;">029</span>186.</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Concorrência - Presencial    11  96<span style="text-decoration: underline;">633</span>877.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Pregão Eletrônico           329 403<span style="text-decoration: underline;">448</span>488.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Concorrência - Presencial    12 131<span style="text-decoration: underline;">052</span>576.</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Pregão Presencial            86 107<span style="text-decoration: underline;">029</span>186.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> <span style="color: #BB0000;">NA</span>                           46  59<span style="text-decoration: underline;">623</span>440.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Dispensa                     67  57<span style="text-decoration: underline;">009</span>695.</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Inexigibilidade              70  20<span style="text-decoration: underline;">914</span>208.</span></span>
@@ -141,20 +141,20 @@ contracts is a one-liner:</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">vigencia_inicio</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">vigencia_fim</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">contratada</span>, <span class="va">objeto</span>, <span class="va">valor</span>, <span class="va">vigencia_fim</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">vigencia_fim</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 53 × 4</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 54 × 4</span></span></span>
 <span><span class="co">#&gt;    contratada                                objeto  valor vigencia_fim</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>      </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> FRANCIELE ELETRO LTDA                     5.000… 8.12<span style="color: #949494;">e</span>4 2026-08-18  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> V. S. COSTA &amp; CIA LTDA                    5.000… 1.7 <span style="color: #949494;">e</span>4 2026-08-24  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> NORT MED PRODUTOS HOSPITALARES LTDA       5.000… 1.49<span style="color: #949494;">e</span>5 2026-08-28  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> R G DISTRIBUIDORA DE ALIMENTOS LTDA       5.000… 2.59<span style="color: #949494;">e</span>4 2026-09-03  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 54.024.431 JEFFERSON PEREIRA MELO DO NAS… 5.000… 2.44<span style="color: #949494;">e</span>4 2026-09-03  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> MAPROS LTDA                               5.000… 1.87<span style="color: #949494;">e</span>6 2026-09-08  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> GPB SERVICOS LTDA                         5.000… 5.48<span style="color: #949494;">e</span>5 2026-09-17  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> IURY HERLEN DE SOUZA SANTOS LTDA          5.000… 5.33<span style="color: #949494;">e</span>6 2026-10-13  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> MCR SISTEMAS E CONSULTORIA LTDA           1.204… 5.71<span style="color: #949494;">e</span>5 2026-10-18  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> INSTITUTO SAUDE EXPRESS                   5.000… 3.28<span style="color: #949494;">e</span>6 2026-10-23  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 43 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> IURY HERLEN DE SOUZA SANTOS LTDA          5.000… 5.33<span style="color: #949494;">e</span>6 2026-10-13  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> MCR SISTEMAS E CONSULTORIA LTDA           1.204… 5.71<span style="color: #949494;">e</span>5 2026-10-18  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> INSTITUTO SAUDE EXPRESS                   5.000… 3.28<span style="color: #949494;">e</span>6 2026-10-23  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> AMORA VERDE EMPREENDIMENTOS LTDA          5.000… 6.66<span style="color: #949494;">e</span>5 2026-10-23  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 23.442.985 CARLOS ALBERTO BAPTISTA DE FA… 5.000… 3.74<span style="color: #949494;">e</span>4 2026-10-28  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> NORT MED PRODUTOS HOSPITALARES LTDA       5.000… 2.11<span style="color: #949494;">e</span>5 2026-10-28  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> AMORA VERDE EMPREENDIMENTOS LTDA          5.000… 9.30<span style="color: #949494;">e</span>5 2026-11-02  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> INOVE PUBLICIDADE E PROPAGANDA LTDA       5.000… 4.29<span style="color: #949494;">e</span>4 2026-11-03  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> CLINICA RADIOLOGICA NOSSA SENHORA DO CAR… 5.000… 1.62<span style="color: #949494;">e</span>6 2026-11-12  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> PSAL - PRIMO SISTEMAS APLICATIVOS LTDA.   5.000… 1.91<span style="color: #949494;">e</span>6 2026-11-27  </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 44 more rows</span></span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="procurement-outcomes">Procurement outcomes<a class="anchor" aria-label="anchor" href="#procurement-outcomes"></a>
@@ -164,8 +164,10 @@ it half a minute, and remember that a failed request yields a zero-row
 tibble rather than an error:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">procurements</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/alepe_procurements.html">alepe_procurements</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Waiting 2s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■                 </span></span></span>
+<span><span class="co">#&gt; Waiting 2s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   </span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">procurements</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 618</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 619</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">procurements</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">ano</span>, <span class="va">status</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -190,7 +192,7 @@ tibble rather than an error:</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Andre Leite, Marcos Wasiliew, Hugo Vasconcelos, Carlos Amorim, Diogo Bezerra, Júlia Nascimento Barreto.</p>
+  <p>Developed by André Leite, Marcos Wasiliew, Hugo Vasconcelos, Carlos Amorim, Diogo Bezerra, Júlia Nascimento Barreto.</p>
 </div>
 
 <div class="pkgdown-footer-right">

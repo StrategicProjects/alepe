@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">alepe</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,19 +43,27 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.0" id="alepe-010">alepe 0.1.0<a class="anchor" aria-label="anchor" href="#alepe-010"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.1.1" id="alepe-011">alepe 0.1.1<a class="anchor" aria-label="anchor" href="#alepe-011"></a></h2>
+<ul><li>
+<code><a href="../reference/alepe_staff.html">alepe_staff()</a></code> gains <code>status = "lent"</code> (API term <code>"efetivo-cedido"</code>): the Assembly’s own permanent staff lent to other bodies. The API publishes them with <code>vinculo</code> <code>"Efetivo"</code>, so this server-side filter is the only way to single them out. <code><a href="../reference/alepe_positions.html">alepe_positions()</a></code> does not accept it, because <code>/cargos</code> ignores the value and returns every status.</li>
+<li>An invalid <code>status</code> in <code><a href="../reference/alepe_staff.html">alepe_staff()</a></code> / <code><a href="../reference/alepe_positions.html">alepe_positions()</a></code> (and their aliases) is now an error, as documented. It used to be evaluated inside the fetch layer’s error handler and surfaced as a warning that the API could not be reached, followed by an empty tibble.</li>
+<li>Author metadata: the maintainer’s name is spelled André Leite; Marcos Wasiliew’s e-mail address is updated; ORCIDs added for Marcos Wasiliew and Júlia Nascimento Barreto.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.0" id="alepe-010">alepe 0.1.0<a class="anchor" aria-label="anchor" href="#alepe-010"></a></h2><p class="text-muted">CRAN release: 2026-08-20</p>
 <ul><li><p>Initial release.</p></li>
 <li><p>Tidy wrappers for all documented v1 endpoints of the ALEPE open data API: representatives, staff, positions, departments, remuneration, contracts, procurements, and legislative propositions (bills, indications, requests).</p></li>
 <li><p>Local response cache, exponential-backoff retries, graceful failures compliant with the CRAN policy on internet resources.</p></li>
 <li><p>Every endpoint function has a Portuguese alias named after the API endpoint it wraps (<code><a href="../reference/alepe_aliases.html">alepe_servidores()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_contratos()</a></code>, <code><a href="../reference/alepe_aliases.html">alepe_projetos()</a></code>, …); see <code><a href="../reference/alepe_aliases.html">?alepe_aliases</a></code>.</p></li>
 </ul></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Andre Leite, Marcos Wasiliew, Hugo Vasconcelos, Carlos Amorim, Diogo Bezerra, Júlia Nascimento Barreto.</p>
+  <p>Developed by André Leite, Marcos Wasiliew, Hugo Vasconcelos, Carlos Amorim, Diogo Bezerra, Júlia Nascimento Barreto.</p>
 </div>
 
 <div class="pkgdown-footer-right">

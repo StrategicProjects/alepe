@@ -13,9 +13,14 @@ alepe_staff(status = NULL, refresh = FALSE)
 
 - status:
 
-  Employment status filter. One of `"permanent"`, `"commissioned"`, or
-  `"seconded"` (the original API terms `"efetivo"`, `"comissionado"`,
-  and `"a-disposicao"` are also accepted), or `NULL` (default) for all.
+  Employment status filter. One of `"permanent"`, `"commissioned"`,
+  `"seconded"` (staff from other bodies placed at the Assembly's
+  disposal), or `"lent"` (the Assembly's own permanent staff lent to
+  other bodies, a subset of `"permanent"`); the original API terms
+  `"efetivo"`, `"comissionado"`, `"a-disposicao"`, and
+  `"efetivo-cedido"` are also accepted. `NULL` (default) for all. Lent
+  staff are published with `vinculo` `"Efetivo"`, so this filter is the
+  only way to tell them apart.
 
 - refresh:
 

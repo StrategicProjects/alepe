@@ -50,9 +50,12 @@ alepe_limpar_cache()
 
 - status:
 
-  Employment status filter. One of `"permanent"`, `"commissioned"`, or
-  `"seconded"` (the original API terms `"efetivo"`, `"comissionado"`,
-  and `"a-disposicao"` are also accepted), or `NULL` (default) for all.
+  Employment status filter, as in
+  [`alepe_staff()`](https://strategicprojects.github.io/alepe/reference/alepe_staff.md)
+  and
+  [`alepe_positions()`](https://strategicprojects.github.io/alepe/reference/alepe_positions.md).
+  `"lent"` (`"efetivo-cedido"`) is accepted by `alepe_servidores()`
+  only.
 
 - numero:
 

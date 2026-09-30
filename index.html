@@ -32,7 +32,7 @@
 
     <a class="navbar-brand me-2" href="index.html">alepe</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,7 +115,7 @@
 <span></span>
 <span><span class="co"># Bills of a given year</span></span>
 <span><span class="fu"><a href="reference/alepe_bills.html">alepe_bills</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2024</span><span class="op">)</span></span></code></pre></div>
-<p>Filter values use an English vocabulary (<code>"permanent"</code>, <code>"commissioned"</code>, <code>"seconded"</code>), but the original API terms (<code>"efetivo"</code>, <code>"comissionado"</code>, <code>"a-disposicao"</code>) are accepted as well. Column names keep the official Portuguese field names, normalized to snake_case, so results stay traceable to the source.</p>
+<p>Filter values use an English vocabulary (<code>"permanent"</code>, <code>"commissioned"</code>, <code>"seconded"</code>, <code>"lent"</code>), but the original API terms (<code>"efetivo"</code>, <code>"comissionado"</code>, <code>"a-disposicao"</code>, <code>"efetivo-cedido"</code>) are accepted as well. Column names keep the official Portuguese field names, normalized to snake_case, so results stay traceable to the source.</p>
 </div>
 <div class="section level2">
 <h2 id="how-it-works">How it works<a class="anchor" aria-label="anchor" href="#how-it-works"></a>
@@ -202,6 +202,7 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=alepe" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/StrategicProjects/alepe/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/StrategicProjects/alepe/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -226,12 +227,12 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Andre Leite <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4718-9766" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
-<li>Marcos Wasiliew <br><small class="roles"> Author </small>   </li>
+<li>André Leite <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4718-9766" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Marcos Wasiliew <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0004-4694-3159" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>Hugo Vasconcelos <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6249-0920" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>Carlos Amorim <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6315-8305" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>Diogo Bezerra <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1216-8674" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
-<li>Júlia Nascimento Barreto <br><small class="roles"> Author </small>   </li>
+<li>Júlia Nascimento Barreto <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0004-2851-7770" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -240,6 +241,7 @@
 <ul class="list-unstyled">
 <li><a href="https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/StrategicProjects/alepe/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://CRAN.R-project.org/package=alepe" class="external-link"><img src="https://www.r-pkg.org/badges/version/alepe" alt="CRAN status"></a></li>
+<li><a href="https://doi.org/10.32614/CRAN.package.alepe" class="external-link"><img src="https://img.shields.io/badge/DOI-10.32614%2FCRAN.package.alepe-blue.svg" alt="DOI"></a></li>
 </ul>
 </div>
 
@@ -250,7 +252,7 @@
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Andre Leite, Marcos Wasiliew, Hugo Vasconcelos, Carlos Amorim, Diogo Bezerra, Júlia Nascimento Barreto.</p>
+  <p>Developed by André Leite, Marcos Wasiliew, Hugo Vasconcelos, Carlos Amorim, Diogo Bezerra, Júlia Nascimento Barreto.</p>
 </div>
 
 <div class="pkgdown-footer-right">
